@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ZooLogic.web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ZooLogicDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public ZooLogicDbContext(DbContextOptions<ZooLogicDbContext> options)
             : base(options)
         {
         }
