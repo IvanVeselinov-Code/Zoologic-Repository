@@ -1,6 +1,6 @@
 ﻿namespace ZooLogic.Data.Models
 {
-    public class Class1
+    public class BaseEntity
     {
 
     }
