@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ZooLogic.Data.Models
 {
-    public class Attachment : BaseEntity
+    public class Reaction : MetadataBaseEntity
     {
-        public string CloudUrl { get; set; }   
+        public string Label { get; set; }
+
+        public Attachment Emote { get; set; } 
     }
 }
