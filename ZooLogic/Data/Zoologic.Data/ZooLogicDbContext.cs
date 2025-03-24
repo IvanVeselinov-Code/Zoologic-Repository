@@ -21,19 +21,6 @@ namespace ZooLogic.web.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ZooLogicRole>()
-                .HasOne(gr => gr.CreatedBy)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<ZooLogicRole>()
-                .HasOne(gr => gr.UpdatedBy)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<ZooLogicRole>()
-                .HasOne(gr => gr.DeletedBy)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Restrict);
-
             builder.Entity<UserThreadReaction>()
                 .HasOne(utr => utr.Thread)
                 .WithMany(t => t.Reactions)

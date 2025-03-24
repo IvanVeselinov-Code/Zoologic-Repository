@@ -14,7 +14,7 @@ namespace ZooLogic.Data.Repositories
 
         IQueryable<TEntity> GetAllAsNoTracking();
 
-        Task<TEntity> EditAsync(TEntity entity);
+        Task<TEntity> UpdateAsync(TEntity entity);
 
         Task<TEntity> DeleteAsync(TEntity entity);
     }

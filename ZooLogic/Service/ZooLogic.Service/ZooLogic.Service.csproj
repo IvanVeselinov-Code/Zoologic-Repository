@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\ZooLogic.Data.Models\ZooLogic.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\Zoologic.Data\ZooLogic.Data.csproj" />
+    <ProjectReference Include="..\ZooLogic.Service.Mappings\ZooLogic.Service.Mappings.csproj" />
+    <ProjectReference Include="..\ZooLogic.Service.Models\ZooLogic.Service.Models.csproj" />
+  </ItemGroup>
+
 </Project>

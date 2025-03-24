@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZooLogic.Data.Models
+namespace ZooLogic.Service.Models
 {
-    public class ZooLogicRole : BaseEntity
+    public class ZooLogicRoleServiceModel : BaseServiceModel
     {
         public const string ZooLogicRoleDefaultAuthority = "User";
         public string Label { get; set; }
