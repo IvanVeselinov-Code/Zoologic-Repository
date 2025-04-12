@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ZooLogic.web.Data;
+using ZooLogic.Data;
+using ZooLogic.Data.Models;
 
 public class Program {
 
@@ -12,7 +13,7 @@ public class Program {
             options.UseSqlServer(connectionString));
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        builder.Services.AddDefaultIdentity<ZooLogicUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ZooLogicDbContext>();
         builder.Services.AddControllersWithViews();
     }

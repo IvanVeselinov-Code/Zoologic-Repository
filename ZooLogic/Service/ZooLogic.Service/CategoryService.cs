@@ -46,6 +46,11 @@ namespace ZooLogic.Service
                 .Select(c => c.ToModel());
         }
 
+        public Task<CategoryServiceModel> GetByAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<CategoryServiceModel> GetByIdAsync(string id)
         {
             return (await this.categoryRepository.GetAll()

@@ -9,7 +9,7 @@ namespace ZooLogic.Data.Models
 {
     public class ZooLogicUser : IdentityUser
     {
-        public ZooLogicRole ForumRole { get; set; }
+        public ZooLogicRole? ForumRole { get; set; }
 
 
     }

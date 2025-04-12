@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ZooLogic.web.Data;
+using ZooLogic.Data;
 
 #nullable disable
 
@@ -409,32 +409,11 @@ namespace ZooLogic.web.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeletedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Label")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UpdatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedById");
-
-                    b.HasIndex("UpdatedById");
 
                     b.ToTable("ForumRoles");
                 });
@@ -507,7 +486,6 @@ namespace ZooLogic.web.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ForumRoleId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -778,33 +756,6 @@ namespace ZooLogic.web.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ZooLogic.Data.Models.ZooLogicRole", b =>
-                {
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "DeletedBy")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "UpdatedBy")
-                        .WithMany()
-                        .HasForeignKey("UpdatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("DeletedBy");
-
-                    b.Navigation("UpdatedBy");
-                });
-
             modelBuilder.Entity("ZooLogic.Data.Models.ZooLogicThread", b =>
                 {
                     b.HasOne("ZooLogic.Data.Models.Category", "Category")
@@ -838,9 +789,7 @@ namespace ZooLogic.web.Data.Migrations
                 {
                     b.HasOne("ZooLogic.Data.Models.ZooLogicRole", "ForumRole")
                         .WithMany()
-                        .HasForeignKey("ForumRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ForumRoleId");
 
                     b.Navigation("ForumRole");
                 });

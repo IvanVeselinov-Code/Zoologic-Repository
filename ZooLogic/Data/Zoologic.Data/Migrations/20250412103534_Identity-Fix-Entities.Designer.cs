@@ -12,8 +12,8 @@ using ZooLogic.Data;
 namespace ZooLogic.web.Data.Migrations
 {
     [DbContext(typeof(ZooLogicDbContext))]
-    [Migration("20250322182401_InitialEntities")]
-    partial class InitialEntities
+    [Migration("20250412103534_Identity-Fix-Entities")]
+    partial class IdentityFixEntities
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -412,32 +412,11 @@ namespace ZooLogic.web.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DeletedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Label")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UpdatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedById");
-
-                    b.HasIndex("UpdatedById");
 
                     b.ToTable("ForumRoles");
                 });
@@ -779,33 +758,6 @@ namespace ZooLogic.web.Data.Migrations
                     b.Navigation("Thread");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ZooLogic.Data.Models.ZooLogicRole", b =>
-                {
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "CreatedBy")
-                        .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "DeletedBy")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ZooLogic.Data.Models.ZooLogicUser", "UpdatedBy")
-                        .WithMany()
-                        .HasForeignKey("UpdatedById")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("CreatedBy");
-
-                    b.Navigation("DeletedBy");
-
-                    b.Navigation("UpdatedBy");
                 });
 
             modelBuilder.Entity("ZooLogic.Data.Models.ZooLogicThread", b =>

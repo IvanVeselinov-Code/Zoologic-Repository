@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ZooLogic.Data.Models;
 
-namespace ZooLogic.web.Data
+namespace ZooLogic.Data
 {
     public class ZooLogicDbContext : IdentityDbContext<ZooLogicUser>
     {
